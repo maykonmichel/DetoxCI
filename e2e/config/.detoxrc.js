@@ -35,5 +35,11 @@ module.exports = {
       device: 'e2e',
       app: 'android.release'
     }
+  },
+  artifacts: {
+    plugins: {
+      log: 'all',
+      video: 'all'
+    }
   }
 };

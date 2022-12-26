@@ -36,4 +36,4 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Build apk
-        run: npx detox build --configuration android.emu.release
+        run: npx detox build --config-path ./e2e/config/.detoxrc.js --configuration android.e2e.release

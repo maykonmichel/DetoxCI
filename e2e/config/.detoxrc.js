@@ -33,13 +33,13 @@ module.exports = {
     },
     'android.e2e.release': {
       device: 'e2e',
-      app: 'android.release'
+      app: 'android.release',
+      artifacts: {
+        plugins: {
+          log: 'all',
+          video: 'all'
+        }
+      }
     }
   },
-  artifacts: {
-    plugins: {
-      log: 'all',
-      video: 'all'
-    }
-  }
 };

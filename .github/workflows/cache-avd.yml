@@ -20,8 +20,7 @@ jobs:
           key: avd-30
 
       - name: Download test butler
-        run: |
-          curl -f -o test-butler-app.apk https://repo1.maven.org/maven2/com/linkedin/testbutler/test-butler-app/2.2.1/test-butler-app-2.2.1.apk
+        run: curl -f -o test-butler-app.apk https://repo1.maven.org/maven2/com/linkedin/testbutler/test-butler-app/2.2.1/test-butler-app-2.2.1.apk
 
       - name: Create AVD with test butler and generate snapshot for caching
         uses: reactivecircus/android-emulator-runner@v2

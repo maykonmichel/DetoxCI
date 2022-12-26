@@ -19,6 +19,8 @@ public class DetoxTest {
 
     @Test
     public void runDetoxTests() {
+        TestButlerProbe.assertReadyIfInstalled();
+
         DetoxConfig detoxConfig = new DetoxConfig();
         detoxConfig.idlePolicyConfig.masterTimeoutSec = 90;
         detoxConfig.idlePolicyConfig.idleResourceTimeoutSec = 60;

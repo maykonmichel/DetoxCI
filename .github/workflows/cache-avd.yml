@@ -19,7 +19,11 @@ jobs:
             ~/.android/adb*
           key: avd-30
 
-      - name: Create AVD and generate snapshot for caching
+      - name: Download test butler
+        run: |
+          curl -f -o test-butler-app.apk https://repo1.maven.org/maven2/com/linkedin/testbutler/test-butler-app/2.2.1/test-butler-app-2.2.1.apk
+
+      - name: Create AVD with test butler and generate snapshot for caching
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: 30
@@ -28,4 +32,7 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: false
-          script: echo "Generated AVD snapshot for caching."
+          script: |
+            adb install -r -t test-butler-app.apk
+            adb shell am startservice com.linkedin.android.testbutler/com.linkedin.android.testbutler.ButlerService
+            adb shell ps | grep butler
